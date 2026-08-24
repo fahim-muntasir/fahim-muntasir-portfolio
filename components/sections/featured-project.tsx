@@ -1,5 +1,47 @@
+import Image from 'next/image';
 import { featuredProject } from '@/data/portfolio';
 import { SectionHeading } from './section-heading';
+import projectImage1 from '@/assets/project-img1.png';
+import { ProjectGallery } from './project-gallery';
+
+const projectScreenshots = [
+  {
+    src: projectImage1,
+    alt: 'Syncora24 live rooms interface',
+    title: 'Discover Live Rooms',
+    description: 'Browse available language practice rooms and join instantly.',
+  },
+  {
+    src: projectImage1,
+    alt: 'Syncora24 real-time voice room',
+    title: 'Real-Time Voice Communication',
+    description: 'Connect with other participants through live WebRTC audio.',
+  },
+  {
+    src: projectImage1,
+    alt: 'Syncora24 room participant management',
+    title: 'Participant Management',
+    description: 'View active members and their real-time audio status.',
+  },
+  {
+    src: projectImage1,
+    alt: 'Syncora24 moderation controls',
+    title: 'Room Moderation',
+    description: 'Moderators can manage participants and control audio access.',
+  },
+  {
+    src: projectImage1,
+    alt: 'Syncora24 room chat',
+    title: 'Real-Time Interaction',
+    description: 'Communicate and interact with other room participants.',
+  },
+  {
+    src: projectImage1,
+    alt: 'Syncora24 authentication interface',
+    title: 'Authentication',
+    description: 'Secure authentication and protected room access.',
+  },
+];
 
 export function FeaturedProject() {
   const { name, tagline, description, techStack, links } = featuredProject;
@@ -17,24 +59,26 @@ export function FeaturedProject() {
           {description}
         </p>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2">
+        <ProjectGallery screenshots={projectScreenshots} />
+
+        {/* <div className="mt-12 grid gap-4 sm:grid-cols-2">
           <div className="overflow-hidden rounded-lg border border-border/60">
-            <img
-              src="https://images.pexels.com/photos/7013900/pexels-photo-7013900.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+            <Image
+              src={projectImage1}
               alt="Syncora24 live rooms interface showing real-time language practice rooms"
               className="h-full w-full object-cover"
               loading="lazy"
             />
           </div>
           <div className="overflow-hidden rounded-lg border border-border/60">
-            <img
-              src="https://images.pexels.com/photos/7643888/pexels-photo-7643888.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+            <Image
+              src={projectImage1}
               alt="Syncora24 room experience with active participants in a voice room"
               className="h-full w-full object-cover"
               loading="lazy"
             />
           </div>
-        </div>
+        </div> */}
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           {links.map((link) => {

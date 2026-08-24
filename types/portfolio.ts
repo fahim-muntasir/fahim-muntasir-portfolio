@@ -84,6 +84,13 @@ export interface CertificationItem {
   name: string;
   organization: string;
   year: string;
+  verifyUrl?: string;
+}
+
+export interface EducationItem {
+  degree: string;
+  institution: string;
+  date: string;
 }
 
 export interface ContactLink {

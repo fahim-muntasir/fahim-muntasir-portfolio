@@ -11,6 +11,7 @@ import { About } from '@/components/sections/about';
 import { Experience } from '@/components/sections/experience';
 import { Certifications } from '@/components/sections/certifications';
 import { Contact } from '@/components/sections/contact';
+import { Education } from '@/components/sections/education';
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
         <EngineeringBreakdown />
         <About />
         <Experience />
+        <Education />
         <Certifications />
         <Contact />
       </main>

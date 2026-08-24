@@ -156,3 +156,89 @@
     scroll-behavior: auto !important;
   }
 }
+
+
+/* =========================
+   Hanging Lamp
+========================= */
+
+.lamp-cable {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(113, 113, 122, 0.2),
+    rgba(212, 212, 216, 0.5)
+  );
+}
+
+.lamp-holder {
+  border-color: rgba(82, 82, 91, 0.6);
+  background: rgba(39, 39, 42, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  opacity: 0.95;
+}
+
+.lamp-neck {
+  background: rgba(63, 63, 70, 0.9);
+  opacity: 0.95;
+}
+
+.lamp-shade {
+  border-color: rgba(82, 82, 91, 0.7);
+  background: rgb(39, 39, 42);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  opacity: 0.95;
+}
+
+.lamp-bulb {
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  background: rgba(216, 204, 156, 0.95);
+  filter: blur(3px);
+  opacity: 0.9;
+}
+
+.lamp-bulb-glow {
+  position: absolute;
+  left: 50%;
+  bottom: -16px;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  background: rgba(255, 251, 235, 0.25);
+  filter: blur(12px);
+  opacity: 0.95;
+}
+
+.lamp-soft-glow {
+  border-radius: 9999px;
+  background: rgba(253, 230, 138, 0.2);
+  filter: blur(32px);
+  opacity: 0.6;
+}
+
+
+/* =========================
+   Hero Light
+========================= */
+
+.hero-light-ambient {
+  background: radial-gradient(
+    ellipse 65% 85% at 50% 0%,
+    rgba(251, 191, 36, 0.075) 0%,
+    rgba(245, 158, 11, 0.035) 32%,
+    rgba(245, 158, 11, 0.015) 55%,
+    transparent 82%
+  );
+}
+
+.hero-light-spread {
+  background: radial-gradient(
+    ellipse 60% 80% at 50% 0%,
+    rgba(255, 220, 130, 0.045) 0%,
+    rgba(251, 191, 36, 0.025) 35%,
+    transparent 78%
+  );
+}

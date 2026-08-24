@@ -24,9 +24,22 @@ export function Certifications() {
                     {item.organization}
                   </p>
                 </div>
-                <span className="font-mono text-xs text-muted-foreground">
-                  {item.year}
-                </span>
+                <div className="flex items-center gap-4">
+                  <span className="font-mono text-xs text-muted-foreground">
+                    {item.year}
+                  </span>
+
+                  {item.verifyUrl && (
+                    <a
+                      href={item.verifyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-medium text-foreground underline-offset-4 hover:underline"
+                    >
+                      Verify ↗
+                    </a>
+                  )}
+                </div>
               </div>
               {index < certificationItems.length - 1 && (
                 <div className="border-t border-border/30" />
