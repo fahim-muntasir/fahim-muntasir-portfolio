@@ -42,7 +42,7 @@ export function ProjectGallery({ screenshots }: ProjectGalleryProps) {
             priority={activeIndex === 0}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
-            className="object-contain transition-transform duration-500"
+            className=" transition-transform duration-500"
           />
         </div>
 
@@ -83,7 +83,7 @@ export function ProjectGallery({ screenshots }: ProjectGalleryProps) {
         </div>
       </div>
 
-      <div className="mt-4 flex gap-3 overflow-x-auto pb-2">
+      {/* <div className="mt-4 flex gap-3 overflow-x-auto pb-2">
         {screenshots.map((screenshot, index) => (
           <button
             key={screenshot.title}
@@ -101,10 +101,41 @@ export function ProjectGallery({ screenshots }: ProjectGalleryProps) {
               alt=""
               fill
               sizes="(max-width: 640px) 128px, 160px"
-              className="object-cover"
+              // className="object-contain"
             />
           </button>
         ))}
+      </div> */}
+
+      <div className="mt-4">
+        <div
+          className="
+      project-gallery-scroll
+      flex gap-3 overflow-x-auto pb-3
+      scroll-smooth
+    "
+        >
+          {screenshots.map((screenshot, index) => (
+            <button
+              key={screenshot.title}
+              type="button"
+              onClick={() => setActiveIndex(index)}
+              aria-label={`View ${screenshot.title}`}
+              aria-current={index === activeIndex ? 'true' : undefined}
+              className={`relative aspect-video w-28 shrink-0 overflow-hidden rounded-lg border transition-all sm:w-40 ${index === activeIndex
+                  ? 'border-primary opacity-100 ring-1 ring-primary/30'
+                  : 'border-border/60 opacity-60 hover:opacity-100'
+                }`}
+            >
+              <Image
+                src={screenshot.src}
+                alt=""
+                fill
+                sizes="(max-width: 640px) 112px, 160px"
+              />
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );

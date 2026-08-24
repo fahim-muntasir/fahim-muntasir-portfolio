@@ -21,12 +21,15 @@ export function Navbar() {
       )}
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        {/* Logo */}
         <a
           href="#home"
           className="font-mono text-sm font-medium tracking-tight text-foreground transition-opacity hover:opacity-70"
         >
-          {profile.name}
+          <span className="font-mono text-sm font-medium">
+            <span className="text-muted-foreground">&lt;</span>
+            {profile.name}
+            <span className="text-muted-foreground"> /&gt;</span>
+          </span>
           {/* <span className="text-muted-foreground">.dev</span> */}
         </a>
 

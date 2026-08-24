@@ -242,3 +242,28 @@
     transparent 78%
   );
 }
+
+/* Project gallery horizontal scrollbar */
+.project-gallery-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--primary) / 0.7) hsl(var(--border) / 0.3);
+}
+
+/* Chrome, Edge, Safari */
+.project-gallery-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.project-gallery-scroll::-webkit-scrollbar-track {
+  background: hsl(var(--border) / 0.25);
+  border-radius: 9999px;
+}
+
+.project-gallery-scroll::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.7);
+  border-radius: 9999px;
+}
+
+.project-gallery-scroll::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}

@@ -9,8 +9,10 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="flex flex-col items-start justify-between gap-8 sm:flex-row">
           <div className="flex flex-col gap-1">
-            <span className="text-sm font-medium text-foreground">
+            <span className="font-mono text-sm font-medium">
+              <span className="text-muted-foreground">&lt;</span>
               {profile.name}
+              <span className="text-muted-foreground"> /&gt;</span>
             </span>
             <span className="text-sm text-muted-foreground">
               {profile.role}

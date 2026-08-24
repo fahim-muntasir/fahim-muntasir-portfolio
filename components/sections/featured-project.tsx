@@ -1,7 +1,10 @@
-import Image from 'next/image';
 import { featuredProject } from '@/data/portfolio';
 import { SectionHeading } from './section-heading';
-import projectImage1 from '@/assets/project-img1.png';
+import projectImage1 from '@/assets/images/ss1.png';
+import projectImage2 from '@/assets/images/ss2.png';
+import projectImage3 from '@/assets/images/ss3.png';
+import projectImage4 from '@/assets/images/ss4.png';
+import projectImage5 from '@/assets/images/ss5.png';
 import { ProjectGallery } from './project-gallery';
 
 const projectScreenshots = [
@@ -9,37 +12,31 @@ const projectScreenshots = [
     src: projectImage1,
     alt: 'Syncora24 live rooms interface',
     title: 'Discover Live Rooms',
-    description: 'Browse available language practice rooms and join instantly.',
+    description: 'Browse active rooms in real time.',
   },
   {
-    src: projectImage1,
+    src: projectImage2,
+    alt: 'Syncora24 room details modal',
+    title: 'Room Details',
+    description: 'Review room information before joining.',
+  },
+  {
+    src: projectImage3,
     alt: 'Syncora24 real-time voice room',
-    title: 'Real-Time Voice Communication',
-    description: 'Connect with other participants through live WebRTC audio.',
+    title: 'Live Voice Room',
+    description: 'Connect and communicate with participants.',
   },
   {
-    src: projectImage1,
-    alt: 'Syncora24 room participant management',
+    src: projectImage4,
+    alt: 'Syncora24 chat inbox panel',
+    title: 'Real-Time Chat',
+    description: 'Exchange messages with room participants.',
+  },
+  {
+    src: projectImage5,
+    alt: 'Syncora24 participant management panel',
     title: 'Participant Management',
-    description: 'View active members and their real-time audio status.',
-  },
-  {
-    src: projectImage1,
-    alt: 'Syncora24 moderation controls',
-    title: 'Room Moderation',
-    description: 'Moderators can manage participants and control audio access.',
-  },
-  {
-    src: projectImage1,
-    alt: 'Syncora24 room chat',
-    title: 'Real-Time Interaction',
-    description: 'Communicate and interact with other room participants.',
-  },
-  {
-    src: projectImage1,
-    alt: 'Syncora24 authentication interface',
-    title: 'Authentication',
-    description: 'Secure authentication and protected room access.',
+    description: 'Monitor members and audio activity.',
   },
 ];
 
@@ -60,25 +57,6 @@ export function FeaturedProject() {
         </p>
 
         <ProjectGallery screenshots={projectScreenshots} />
-
-        {/* <div className="mt-12 grid gap-4 sm:grid-cols-2">
-          <div className="overflow-hidden rounded-lg border border-border/60">
-            <Image
-              src={projectImage1}
-              alt="Syncora24 live rooms interface showing real-time language practice rooms"
-              className="h-full w-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <div className="overflow-hidden rounded-lg border border-border/60">
-            <Image
-              src={projectImage1}
-              alt="Syncora24 room experience with active participants in a voice room"
-              className="h-full w-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        </div> */}
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           {links.map((link) => {
