@@ -68,7 +68,7 @@ export const featuredProject: FeaturedProject = {
   name: "Syncora24",
   tagline: "A Full-Stack Real-Time Language Practice Platform",
   description:
-    "Syncora24 is a real-time language practice platform where users can discover live rooms, join conversations, communicate through voice and text, and interact with other members in real time.",
+    "Syncora24 is a full-stack real-time language practice platform where users can discover live rooms, join conversations through audio and video, share their screens, exchange messages, and interact through synchronized room and moderation events.",
   techStack: [
     "Next.js",
     "TypeScript",
@@ -102,47 +102,53 @@ export const userCapabilities: UserCapability[] = [
   {
     number: "01",
     title: "Discover Live Rooms",
-    description: "Browse language practice rooms that update in real time.",
+    description: "Browse active language practice rooms and see real-time room updates.",
   },
   {
     number: "02",
     title: "Join a Room",
     description:
-      "Open a room and view the current active members before joining.",
+      "View room information and current participants before joining.",
   },
   {
     number: "03",
-    title: "Real-Time Voice Communication",
+    title: "Audio & Video Communication",
     description:
-      "Connect with other participants through WebRTC-powered voice communication.",
+      "Communicate with other participants through WebRTC-powered real-time audio and video.",
   },
   {
     number: "04",
-    title: "Live Chat",
-    description: "Send and receive messages instantly inside a room.",
+    title: "Screen Sharing",
+    description: "Share your screen with other participants during a live session.",
   },
   {
     number: "05",
-    title: "Create Rooms",
+    title: "Live Chat & Activity",
     description:
-      "Create rooms with language, level, participant limits, and other configurations.",
+      "Exchange messages and see room activity such as joins, leaves, moderation actions, and room events.",
   },
   {
     number: "06",
     title: "Room Moderation",
     description:
-      "Hosts and moderators can manage participant audio and room moderation.",
+      "Hosts and moderators can manage participants, mute members, and control room audio.",
   },
   {
     number: "07",
-    title: "Leave Anytime",
-    description: "Members can leave rooms without disrupting the experience.",
+    title: "Participant Management",
+    description: "Manage participant states, moderation roles, kicks, microphone/camera states, and room membership.",
   },
   {
     number: "08",
+    title: "Room Lifecycle",
+    description:
+      "Hosts can end rooms while all connected clients receive synchronized room-ended updates.",
+  },
+  {
+    number: "09",
     title: "Automatic Room Cleanup",
     description:
-      "If a room remains empty for five minutes, it is automatically removed from Redis.",
+      "Empty rooms are automatically removed from temporary Redis state after the configured timeout.",
   },
 ];
 
@@ -163,12 +169,12 @@ export const architectureHighlights: ArchitectureHighlight[] = [
   {
     title: "Real-Time Layer",
     description:
-      "Socket.IO handles real-time room updates, member events, messaging, signaling, and moderation events.",
+      "Socket.IO handles room updates, participant events, messaging, WebRTC signaling, moderation, activity events, and room lifecycle synchronization.",
   },
   {
-    title: "Voice Communication",
+    title: "Real-Time Media",
     description:
-      "WebRTC establishes peer-to-peer audio connections between participants.",
+      "WebRTC establishes peer-to-peer audio and video connections between participants and supports screen sharing.",
   },
   {
     title: "Room State",
@@ -239,8 +245,8 @@ export const engineeringSteps: EngineeringStep[] = [
     content: {
       kind: "text",
       paragraphs: [
-        "Socket.IO manages room events. WebRTC handles peer-to-peer audio. Socket.IO also helps with WebRTC signaling.",
-        "Socket.IO handles coordination, events, signaling, and synchronization. WebRTC handles peer-to-peer voice streams.",
+        "Socket.IO coordinates room events, messaging, moderation, activity updates, room lifecycle events, and WebRTC signaling.",
+        "WebRTC handles peer-to-peer audio, video, and screen-sharing streams.",
       ],
     },
   },
@@ -289,20 +295,32 @@ export const engineeringSteps: EngineeringStep[] = [
       roles: [
         {
           role: "Normal Members",
-          permissions: ["Can mute and unmute themselves"],
+          permissions: ["Mute/unmute themselves", "Control their own camera",  "Participate in room communication"],
         },
         {
-          role: "Hosts and Moderators",
+          role: "Moderators",
           permissions: [
-            "Can manage their own audio",
-            "Can mute or unmute individual members",
+            "Mute/unmute individual participants",
+            "Manage moderation state",
+            "Moderate room participants",
           ],
         },
         {
           role: "Host",
           permissions: [
-            "Can mute all members",
-            "When mute-all is enabled, normal members cannot independently unmute themselves",
+            "All moderator capabilities",
+            "Mute all participants",
+            "End the room",
+            "Manage room lifecycle",
+          ],
+        },
+        {
+          role: "Participant Management",
+          permissions: [
+            "Kick participants",
+            "Persist moderator assignments",
+            "Persist moderation state",
+            "Synchronize moderation state when participants join/rejoin",
           ],
         },
       ],
@@ -310,6 +328,27 @@ export const engineeringSteps: EngineeringStep[] = [
   },
   {
     number: "08",
+    title: "Live Room Activity",
+    content: {
+      kind: "events",
+      intro: "Room activity is synchronized through Socket.IO and surfaced inside the chat experience, keeping participants informed about joins, leaves,  moderation actions, promotions, kicks, and room lifecycle events.",
+      events: [
+        "User joined",
+        "User left",
+        "User kicked",
+        "Moderator promoted",
+        "Participant muted",
+        "Mute-all enabled",
+        "Mute-all disabled",
+        "User unmuted",
+        "Camera enabled",
+        "Camera disabled",
+        "Room ended",
+      ],
+    },
+  },
+  {
+    number: "09",
     title: "Managing the Room Lifecycle",
     content: {
       kind: "lifecycle",
@@ -324,7 +363,7 @@ export const engineeringSteps: EngineeringStep[] = [
     },
   },
   {
-    number: "09",
+    number: "10",
     title: "Ending a Room Safely",
     content: {
       kind: "flow",
@@ -341,7 +380,7 @@ export const engineeringSteps: EngineeringStep[] = [
     },
   },
   {
-    number: "10",
+    number: "11",
     title: "Authentication & Sessions",
     content: {
       kind: "list",
@@ -355,7 +394,7 @@ export const engineeringSteps: EngineeringStep[] = [
     },
   },
   {
-    number: "11",
+    number: "12",
     title: "Real-Time Events",
     content: {
       kind: "events",
@@ -366,16 +405,22 @@ export const engineeringSteps: EngineeringStep[] = [
         "User joined",
         "User left",
         "Message received",
+        "Room activity",
+        "Participant kicked",
+        "Moderator promoted",
         "Moderation updates",
         "Mute/unmute",
+        "Mute-all",
+        "Camera state",
         "Speaking state",
         "Room ended",
         "WebRTC signaling",
+        "Screen sharing state",
       ],
     },
   },
   {
-    number: "12",
+    number: "13",
     title: "Engineering Decisions",
     content: {
       kind: "decisions",
@@ -402,8 +447,8 @@ export const engineeringSteps: EngineeringStep[] = [
         },
         {
           question: "Why WebRTC?",
-          why: "Voice communication requires low-latency peer-to-peer streams.",
-          result: "Direct peer-to-peer audio between participants.",
+          why: "Real-time communication requires low-latency peer-to-peer media streams.",
+          result: "Peer-to-peer audio, video, and screen-sharing communication between participants.",
         },
         {
           question: "Why Separate Persistent and Temporary Data?",
