@@ -68,7 +68,7 @@ export const featuredProject: FeaturedProject = {
   name: "Syncora24",
   tagline: "A Full-Stack Real-Time Language Practice Platform",
   description:
-    "Syncora24 is a full-stack real-time language practice platform where users can discover live rooms, join conversations through audio and video, share their screens, exchange messages, and interact through synchronized room and moderation events.",
+    "Syncora24 is a full-stack language practice platform featuring Open Conversation and Debate rooms. Users can discover live rooms, join audio/video conversations, share screens, exchange messages, and participate in structured debates with For and Against sides. Socket.IO synchronizes room events, participant states, and moderation actions in real time.",
   techStack: [
     "Next.js",
     "TypeScript",
@@ -106,46 +106,52 @@ export const userCapabilities: UserCapability[] = [
   },
   {
     number: "02",
+    title: "Open Conversation & Debate",
+    description:
+      "Join open-ended language conversations or participate in structured debates with For and Against sides.",
+  },
+  {
+    number: "03",
     title: "Join a Room",
     description:
       "View room information and current participants before joining.",
   },
   {
-    number: "03",
+    number: "04",
     title: "Audio & Video Communication",
     description:
       "Communicate with other participants through WebRTC-powered real-time audio and video.",
   },
   {
-    number: "04",
+    number: "05",
     title: "Screen Sharing",
     description: "Share your screen with other participants during a live session.",
   },
   {
-    number: "05",
+    number: "06",
     title: "Live Chat & Activity",
     description:
       "Exchange messages and see room activity such as joins, leaves, moderation actions, and room events.",
   },
   {
-    number: "06",
+    number: "07",
     title: "Room Moderation",
     description:
       "Hosts and moderators can manage participants, mute members, and control room audio.",
   },
   {
-    number: "07",
+    number: "08",
     title: "Participant Management",
     description: "Manage participant states, moderation roles, kicks, microphone/camera states, and room membership.",
   },
   {
-    number: "08",
+    number: "09",
     title: "Room Lifecycle",
     description:
       "Hosts can end rooms while all connected clients receive synchronized room-ended updates.",
   },
   {
-    number: "09",
+    number: "10",
     title: "Automatic Room Cleanup",
     description:
       "Empty rooms are automatically removed from temporary Redis state after the configured timeout.",
@@ -165,6 +171,11 @@ export const architectureHighlights: ArchitectureHighlight[] = [
     title: "Frontend Architecture",
     description:
       "Next.js App Router, TypeScript, reusable components, Redux Toolkit, and RTK Query.",
+  },
+  {
+    title: "Room Types & Debate State",
+    description:
+      "Supports Open Conversation and Debate rooms, with For and Against side selection and participant-side presentation in debate sessions.",
   },
   {
     title: "Real-Time Layer",
@@ -222,8 +233,8 @@ export const engineeringSteps: EngineeringStep[] = [
       kind: "list",
       items: [
         "Rooms are displayed on the application entry page.",
-        "Room information updates in real time.",
-        "Users can see active rooms and current participants.",
+        "Room information and participant counts update in real time.",
+        "Room cards identify whether a session is an Open Conversation or a Debate.",
       ],
     },
   },
@@ -233,9 +244,10 @@ export const engineeringSteps: EngineeringStep[] = [
     content: {
       kind: "list",
       items: [
-        "When a user selects a room, they are redirected to the room experience.",
-        "A join experience/modal can show current room information and active members.",
-        "Room membership is synchronized in real time.",
+        "Users can review room information and active participants before joining.",
+        "Open Conversation rooms follow the existing joining flow.",
+        "Debate rooms require users to select For or Against before joining.",
+        "Participant membership and debate-side assignments are synchronized across the room experience.",
       ],
     },
   },
@@ -260,7 +272,7 @@ export const engineeringSteps: EngineeringStep[] = [
           label: "Client-Side Shared State",
           description: "Redux Toolkit manages shared application state.",
           subItems: [
-            "Room state: audio enabled, mute state, speaking users, unmuted users, force-muted users, mute-all state, mute-all excluded users",
+            "Room state: audio enabled, mute state, speaking users, unmuted users, force-muted users, mute-all state, mute-all excluded users, and and applicable debate-side assignments.",
             "Authentication state: current user, authentication status",
             "Other shared application state where applicable",
           ],

@@ -1,42 +1,72 @@
 import { featuredProject } from '@/data/portfolio';
 import { SectionHeading } from './section-heading';
-import projectImage1 from '@/assets/images/ss1.png';
-import projectImage2 from '@/assets/images/ss2.png';
-import projectImage3 from '@/assets/images/ss3.png';
-import projectImage4 from '@/assets/images/ss4.png';
-import projectImage5 from '@/assets/images/ss5.png';
-import { ProjectGallery } from './project-gallery';
+import projectImage1 from "@/assets/images/ss1.png";
+import projectImage2 from "@/assets/images/ss2.png";
+import projectImage3 from "@/assets/images/ss3.png";
+import projectImage4 from "@/assets/images/ss4.png";
+import projectImage5 from "@/assets/images/ss5.png";
+import projectImage6 from "@/assets/images/ss6.png";
+import projectImage7 from "@/assets/images/ss7.png";
+import projectImage8 from "@/assets/images/ss8.png";
+
+import { ProjectGallery } from "./project-gallery";
 
 const projectScreenshots = [
   {
     src: projectImage1,
-    alt: 'Syncora24 live rooms interface',
-    title: 'Discover Live Rooms',
-    description: 'Browse active rooms in real time.',
+    alt: "Syncora24 live rooms discovery interface",
+    title: "Discover Live Rooms",
+    description:
+      "Browse active language practice rooms with real-time updates.",
   },
   {
     src: projectImage2,
-    alt: 'Syncora24 room details modal',
-    title: 'Room Details',
-    description: 'Review room information before joining.',
+    alt: "Syncora24 debate room details and side selection modal",
+    title: "Debate Room Details & Side Selection",
+    description:
+      "Review room details and choose For or Against before joining a debate.",
   },
   {
     src: projectImage3,
-    alt: 'Syncora24 real-time voice room',
-    title: 'Live Voice Room',
-    description: 'Connect and communicate with participants.',
+    alt: "Syncora24 live voice and video practice room",
+    title: "Live Open Conversation Room",
+    description:
+      "Practice speaking through real-time audio and video with other participants.",
   },
   {
     src: projectImage4,
-    alt: 'Syncora24 chat inbox panel',
-    title: 'Real-Time Chat',
-    description: 'Exchange messages with room participants.',
+    alt: "Syncora24 debate room with For and Against participants",
+    title: "Structured Debate Room",
+    description:
+      "Discuss a shared topic with participants organized by debate side.",
+  },
+  {
+    src: projectImage8,
+    alt: "Syncora24 room host and moderator action controls",
+    title: "Host & Moderator Actions",
+    description:
+      "Access room management and moderation actions when needed.",
+  },
+  {
+    src: projectImage6,
+    alt: "Syncora24 participant management and moderation controls",
+    title: "Participant & Moderation Controls",
+    description:
+      "Manage participants, moderator roles, and audio permissions.",
+  },
+  {
+    src: projectImage7,
+    alt: "Syncora24 screen sharing in a live practice room",
+    title: "Screen Sharing",
+    description:
+      "Share your screen with other participants during a live session.",
   },
   {
     src: projectImage5,
-    alt: 'Syncora24 participant management panel',
-    title: 'Participant Management',
-    description: 'Monitor members and audio activity.',
+    alt: "Syncora24 real-time chat and room activity panel",
+    title: "Real-Time Chat & Activity",
+    description:
+      "Exchange messages and follow participant activity as it happens.",
   },
 ];
 
